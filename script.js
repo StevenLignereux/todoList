@@ -1,8 +1,8 @@
-const formAddTask = document.getElementById('#formAddTask');
+const formAddTask = document.querySelector('#formAddTask');
 
 const URL_ACTIONS = 'actions.php';
 
-formAddTask.addEventListener('submit', function (e) {
+formAddTask.addEventListener('submit', async function (e) {
     e.preventDefault();
 
     const formData = new FormData(e.target);

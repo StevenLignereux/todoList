@@ -28,6 +28,11 @@ class Database
         $this->db->exec($query);
     }
 
+    public function getDatabase(): SQLite3
+    {
+        return $this->db;
+    }
+
     private function exec(string $query): void
     {
         $this->db->prepare($query);
