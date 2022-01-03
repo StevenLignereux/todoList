@@ -43,6 +43,7 @@ formAddTask.addEventListener('submit', async function (e) {
             const taskName = document.createTextNode(json.taskName);
 
             checkbox.type = 'checkbox';
+            checkbox.addEventListener('change', updateTask);
             checkbox.classList.add('form-check-input');
             checkbox.dataset.id = json.taskId;
 
