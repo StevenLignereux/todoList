@@ -1,8 +1,24 @@
 const formAddTask = document.querySelector('#formAddTask');
 const tableTask = document.querySelector('.table');
 const inputTask = document.querySelector('#inputTaskName');
+const checkboxes = document.querySelectorAll('.form-check-input');
 
 const URL_ACTIONS = 'actions.php';
+
+const updateTask = async function (e) {
+    await fetch(URL_ACTIONS, {
+        method: 'PUT',
+        body: JSON.stringify({
+            action: 'update_task',
+            done: this.checked,
+            taskId: this.dataset.id
+        })
+    });
+}
+
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', updateTask);
+});
 
 formAddTask.addEventListener('submit', async function (e) {
     e.preventDefault();

@@ -46,6 +46,13 @@ class Database
         $this->db->exec($query);
     }
 
+    public function updateTask(int $id, int $done): void
+    {
+        $query = "UPDATE task SET `done` = $done WHERE `id` = $id";
+
+        $this->exec($query);
+    }
+
     public function getDatabase(): SQLite3
     {
         return $this->db;
