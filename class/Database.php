@@ -21,6 +21,24 @@ class Database
         $this->db->exec($query);
     }
 
+    public function getTasks(): array
+    {
+        $tasks = [];
+        $query = "SELECT * FROM task";
+
+        $data = $this->db->query($query);
+
+        while ($row = $data->fetchArray()) {
+            $tasks[] = [
+                'id' => $row['id'],
+                'done' => $row['done'],
+                'name' => $row['name']
+            ];
+        }
+
+        return $tasks;
+    }
+
     public function addTask(string $name): void
     {
         $query = "INSERT INTO task (`done`, `name`) VALUES (false, '$name');";

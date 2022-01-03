@@ -49,10 +49,18 @@
         </thead>
 
         <tbody>
-          <tr>
-            <td style="width: 10%;" class="text-center"><input type="checkbox" class="form-check-input"></td>
-            <td>Nom de la tâche</td>
-          </tr>
+          <?php
+            foreach ($tasks as $task) {
+                ?>
+                <tr>
+                  <td class="text-center" style="width: 10%;">
+                    <input type="checkbox" class="form-check-input" data-id="<?= $task['id'] ?>" <?= $task['checked'] ?>>
+                  </td>
+                  <td><?= $task['name'] ?></td>
+                </tr>
+              <?php
+            }
+          ?>
         </tbody>
 
       </table>
