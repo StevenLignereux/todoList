@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/var/www/html/todoList/
+    - /bin/cp -R images $DEPLOYPATH
